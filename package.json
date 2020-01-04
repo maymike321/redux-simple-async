@@ -2,14 +2,33 @@
   "name": "redux-simple-async",
   "version": "0.0.1",
   "description": "Simple library for creating and firing off asynchronous actions in redux.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "test"
+    "test": "jest --config jestconfig.json",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maymike321/redux-simple-async"
   },
   "keywords": [
     "redux",
     "async"
   ],
   "author": "Michael May",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maymike321/redux-simple-async/issues"
+  },
+  "homepage": "https://github.com/maymike321/redux-simple-async#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/redux": "^3.6.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.4"
+  }
 }
