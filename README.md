@@ -29,7 +29,7 @@ export const getUsers = createAsyncAction('GET_USERS',
         try {
             const state = getState(); // use getState to get the state of the redux store
             const token = getToken(state);
-            const users = await getUsersFromApi(token); // fire off and wait for other async actions.
+            const users = await dispatch(getUsersFromApi(token)); // fire off and wait for other async actions.
             dispatch(storeUsers(users));
         }
         catch (e) {
@@ -51,7 +51,7 @@ export const editUser = createAsyncAction<User>('EDIT_USER',
         try {
             const state = getState();
             const token = getToken(state);
-            await editUserFromApi(userToEdit, token);
+            await dispatch(editUserFromApi(userToEdit, token));
         }
         catch (e) {
             dispatch(storeError(e));
