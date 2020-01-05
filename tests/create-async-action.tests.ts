@@ -1,7 +1,7 @@
 import { createAsyncAction } from '../src/index';
 import { AnyAction, Dispatch } from 'redux';
 
-describe('Create async action', () => {
+describe('createAsyncAction', () => {
     const type = 'type';
     const defaultPayload = 1;
 

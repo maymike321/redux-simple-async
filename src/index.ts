@@ -1,20 +1,13 @@
 import { MiddlewareAPI, Dispatch, AnyAction } from "redux";
 
 export const asyncMiddleware = 
-    (mwApi: MiddlewareAPI<Dispatch<AnyAction>>) => {
-        (next: Dispatch<AnyAction>) => {
+    (mwApi: MiddlewareAPI<Dispatch<AnyAction>>) => 
+        (next: Dispatch<AnyAction>) => 
             async (action: any) => {
-                if (!isAsyncFunction(action.async)) return next(action);
+                if (!action.async) return next(action);
                 next(action);
                 return await action.async(mwApi.dispatch, mwApi.getState);
             }
-        }
-    }
-
-const isAsyncFunction = (possibleAsyncFunction: any) => 
-    possibleAsyncFunction &&
-    possibleAsyncFunction.constructor &&
-    possibleAsyncFunction.constructor.name === "AsyncFunction";
 
 type BehaviorWithPayload<TPayload> = (dispatch: Dispatch<AnyAction>, getState: () => any, payload: TPayload) => Promise<void>
 type BehaviorWithoutPayload = (dispatch: Dispatch<AnyAction>, getState: () => any) => Promise<void>
