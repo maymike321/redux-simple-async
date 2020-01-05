@@ -47,11 +47,11 @@ const mapDispatchToProps = dispatch => ({
 ```ts
 // editUser.ts
 export const editUser = createAsyncAction<User>('EDIT_USER',
-    async (dispatch, getState, payload) => {
+    async (dispatch, getState, userToEdit) => {
         try {
             const state = getState();
             const token = getToken(state);
-            await editUserFromApi(payload, token);
+            await editUserFromApi(userToEdit, token);
         }
         catch (e) {
             dispatch(storeError(e));
