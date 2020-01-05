@@ -29,7 +29,7 @@ export const getUsers = createAsyncAction('GET_USERS',
         try {
             const state = getState(); // use getState to get the state of the redux store
             const token = getToken(state);
-            const users = await dispatch(getUsersFromApi(token)); // fire off and wait for other async actions.
+            const users = await dispatch(getUsersFromApi(token)); // fire off and wait for other async actions
             dispatch(storeUsers(users));
         }
         catch (e) {
