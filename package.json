@@ -3,12 +3,17 @@
   "version": "0.0.1",
   "description": "Simple library for creating and firing off asynchronous actions in redux.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "version": "git add -A src",
+    "postversion": "git push && get push --tags"
   },
   "repository": {
     "type": "git",
