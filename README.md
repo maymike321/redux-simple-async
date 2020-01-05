@@ -46,8 +46,8 @@ const mapDispatchToProps = dispatch => ({
 ### With Payload:
 ```ts
 // editUser.ts
-export const editUser = createAsyncAction('EDIT_USER',
-    async (dispatch, getState, payload: User) => {
+export const editUser = createAsyncAction<User>('EDIT_USER',
+    async (dispatch, getState, payload) => {
         try {
             const state = getState();
             const token = getToken(state);
